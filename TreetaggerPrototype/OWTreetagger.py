@@ -419,8 +419,17 @@ class OWTreetagger(OWWidget):
                 "warning"
             )
 
-            compteur = 0
+            # Initialisation de variables
             total_tagged_text = list()
+            new_segmentations = list()
+            i = 0
+            
+            # Initialize progress bar.
+            self.progressBar = OWGUI.ProgressBar(
+                self,
+                iterations = 5
+            )
+            
             # ajouter la seguementation du seguement
             for seg_idx, segment in enumerate(self.inputData):
                 attr = " ".join(["%s='%s'" % \
@@ -428,22 +437,24 @@ class OWTreetagger(OWWidget):
                 segment.annotations["tt_xb"] = attr
                 self.inputData[seg_idx] = segment
 
+            # avancer la progressBar d'un cran
+            self.progressBar.advance()
+
             concatenated_text = self.inputData.to_string(
                 formatting="<xb_tt %(tt_xb)s>%(__content__)s</xb_tt>",
                 display_all=True,
             )
+            
+            # avancer la progressBar d'un cran
+            self.progressBar.advance()
+            
             tagged_text = self.tag(concatenated_text)
             tagged_input = Input(tagged_text)
             tagged_segmentation = Segmenter.import_xml(tagged_input, "xb_tt")
-
-            # Initialize progress bar.
-            self.progressBar = OWGUI.ProgressBar(
-                self,
-                iterations=compteur
-            )
-
-            new_segmentations = list()
-            i = 0
+            
+            # avancer la progressBar d'un cran
+            self.progressBar.advance()
+            
             # Si checkBox xml active
             if self.activer_xml == True:
                 xml_segmentation = Segmenter.recode(
@@ -557,6 +568,9 @@ class OWTreetagger(OWWidget):
             out = outcom1.communicate()[0]\
                          .decode(encoding="utf-8", errors="ignore")
 
+        # avancer la progressBar d'un cran
+        self.progressBar.advance()
+            
         # ecrire dans un deuxieme fichier le texte separe en mots
         f = codecs.open(tmp2, 'w')
         f.write(out.encode("UTF-8"))
@@ -567,7 +581,7 @@ class OWTreetagger(OWWidget):
         else:
             bin_treetagger = "/bin/tree-tagger"
 
-        # tagger le texte avec type et lemma
+        # taguer le texte avec type et lemma
         if self.unknown == True:
             commande2 = [
                 os.path.normpath(self.treetagger_link + bin_treetagger),
@@ -597,7 +611,6 @@ class OWTreetagger(OWWidget):
                 tmp2
             ]
 
-        ##print commande2, "commande2"
         if self.system == "nt":
             output = sp.Popen(commande2, stdout=sp.PIPE, shell=True)
             outtext = output.communicate()[0]\
@@ -607,6 +620,9 @@ class OWTreetagger(OWWidget):
             outtext = output.communicate()[0]\
                             .decode(encoding="utf-8", errors="ignore")
 
+        # avancer la progressBar d'un cran
+        self.progressBar.advance()
+        
         return outtext
 
     def updateGUI(self):
