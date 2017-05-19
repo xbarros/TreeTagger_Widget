@@ -262,18 +262,25 @@ class OWTreetagger(OWWidget):
                 self.treetagger_link = os.path.normpath("C:\TreeTagger")
 
         else:
-            if os.path.exists(os.path.normpath("/Users/"+self.user+"/treetagger_link.txt")):
-                file = open(os.path.normpath("/Users/"+self.user+"/treetagger_link.txt"), 'r')
+            if os.path.exists(os.path.normpath("/Users/" + \
+            self.user + "/treetagger_link.txt")):
+                file = open(os.path.normpath(
+                    "/Users/" + self.user + "/treetagger_link.txt"),
+                    'r'
+                )
                 self.treetagger_link = file.read()
             else:
-                self.treetagger_link = os.path.normpath("/Applications/TreeTagger")
+                self.treetagger_link = os.path.normpath(
+                    "/Applications/TreeTagger"
+                )
 
         # verifier si le chemin est correcte
         for check in check_list:
             check = os.path.exists(self.treetagger_link + check)
             liste.append(check)
 
-        # si non alors afficher le bouton pour aller chercher le lien et verouiller le reste des posibilite...
+        # afficher le bouton pour aller chercher le lien
+        # et verouiller le reste des posibilite...
         if False in liste:
             self.NoLink = True
             # botton encore visible et les autres verouille
@@ -283,7 +290,8 @@ class OWTreetagger(OWWidget):
             # afficher les probleme s'il y en a...
             if self.var1 == 0:
                 self.infoBox.setText(
-                    u"Please click 'Browse' and select the path to TreeTagger base folder. ",
+                    u"Please click 'Browse' and select the path \
+                    to TreeTagger base folder. ",
                     "warning"
                 )
             else:
@@ -292,11 +300,13 @@ class OWTreetagger(OWWidget):
                     "error"
                 )
 
-        # si oui cacher le bouton pour aller chercher le lien et deverouiller le reste des posibilite...
+        # cacher le bouton pour aller chercher le lien
+        # et deverouiller le reste des posibilite...
         else:
             if self.var1 > 0:
                 self.infoBox.setText(
-                    u"TreeTagger's link is correct !\n\n Now, Widget needs input.",
+                    u"TreeTagger's link is correct !\n\n \
+                    Now, Widget needs input.",
                     "warning"
                 )
             else:
@@ -335,10 +345,10 @@ class OWTreetagger(OWWidget):
             file = open("treetagger_link.txt", 'w')
         else:
             file = open(os.path.normpath(
-                "/Users/" + self.user + "/treetagger_link.txt"), 
+                "/Users/" + self.user + "/treetagger_link.txt"),
                 'w'
             )
-            
+
         file.write(self.treetagger_link)
         file.close()
 
@@ -355,12 +365,14 @@ class OWTreetagger(OWWidget):
 
         langues_presentes = list()
 
-        # On cherche parmis les langue possible, lesquelles sont installe dans l'ordinateur
+        # On cherche quelles langue sont installees dans l'ordinateur
         for langue in self.langues_possibles.keys():
             check = True
             for file_utile in self.langues_possibles[langue]:
                 check = check and os.path.isfile(
-                    os.path.normpath(self.treetagger_link + "/lib/" + file_utile)
+                    os.path.normpath(
+                        self.treetagger_link + "/lib/" + file_utile
+                    )
                 )
                 if not check:
                     break
@@ -385,7 +397,7 @@ class OWTreetagger(OWWidget):
         self.sendButton.sendIf()
 
     def sendData(self):
-
+        
         # Si le lien vers treetagger n'est pas trouve
         if self.NoLink:
             self.infoBox.setText(
@@ -393,7 +405,6 @@ class OWTreetagger(OWWidget):
                 "error"
             )
             self.send('Text data', None)
-
         # Important: if input data is None, propagate this value to output...
         elif not self.inputData:
             self.infoBox.setText(
@@ -401,9 +412,8 @@ class OWTreetagger(OWWidget):
                 "warning"
             )
             self.send('Text data', None)
-
+        # affiche que quelque chose se passe...
         else:
-            # affiche que quelque chose se passe...
             self.infoBox.setText(
                 u'TreeTagger is running...',
                 "warning"
@@ -411,9 +421,10 @@ class OWTreetagger(OWWidget):
 
             compteur = 0
             total_tagged_text = list()
-
+            # ajouter la seguementation du seguement
             for seg_idx, segment in enumerate(self.inputData):
-                attr = " ".join(["%s='%s'" % item for item in segment.annotations.items()])
+                attr = " ".join(["%s='%s'" % \
+                item for item in segment.annotations.items()])
                 segment.annotations["tt_xb"] = attr
                 self.inputData[seg_idx] = segment
 
@@ -421,20 +432,9 @@ class OWTreetagger(OWWidget):
                 formatting="<xb_tt %(tt_xb)s>%(__content__)s</xb_tt>",
                 display_all=True,
             )
-
             tagged_text = self.tag(concatenated_text)
             tagged_input = Input(tagged_text)
             tagged_segmentation = Segmenter.import_xml(tagged_input, "xb_tt")
-
-            """
-            # temporaire...
-            for nb_segment in self.inputData:
-                taille_segment = self.tag(nb_segment.get_content())
-
-                total_tagged_text.append(taille_segment)
-
-                compteur += len(taille_segment)
-            """
 
             # Initialize progress bar.
             self.progressBar = OWGUI.ProgressBar(
@@ -443,133 +443,39 @@ class OWTreetagger(OWWidget):
             )
 
             new_segmentations = list()
-            i=0
-
+            i = 0
             # Si checkBox xml active
             if self.activer_xml == True:
                 xml_segmentation = Segmenter.recode(
                         tagged_segmentation,
-                        substitutions=[
+                        substitutions = [
                             (re.compile(r"<unknown>"), '[unknown]'),
-                            #(re.compile(r'<'), '"&lt;"'),
-                            #(re.compile(r'>'), '"&gt;"'),
-                            (re.compile(r"(.+)\t(.+)\t(.+)"), '<w lemma="&3" type="&2">&1</w>'),
+                            (re.compile(
+                                r"(.+)\t(.+)\t(.+)"),
+                                '<w lemma="&3" type="&2">&1</w>'
+                            ),
                             (re.compile(r'"""'), '"&quot;"'),
-
                         ],
                     )
                 final_segmentation = xml_segmentation
-                """
-                for in_segment in self.inputData:
-
-                    tagged_text = total_tagged_text[i] # ici pour separer le truc de plusieurs input
-                    ##print in_segment.get_content()
-                    #print tagged_text, "tagged_text"
-                    ##print total_tagged_text, "total_tagged_text"
-
-                    code_xml_tot = []
-                    for elem in tagged_text:
-                        # s'il y a une balise xml dans l'element a coder je l'ajoute sans rien faire.
-                        if "<" in elem[0] and ">" in elem[0]:
-                            code_xml = elem[0]
-                        # Sinon j'ajoute un code xml pour tagger
-                        else:
-                            code_xml = '<w lemma="%s" type="%s">%s</w>' % (elem[1], elem[2][0:-1], elem[0])
-                        code_xml_tot.append(code_xml)
-                    # ajuste les details...
-                    xml_tagged = "\n".join(code_xml_tot).replace '"&quot;"')
-
-
-                    #print xml_segmentation.to_string()
-
-                    # nouvel input et copie les annotations pour les faire apparaitre dans le output...
-                    new_input = Input(xml_tagged)
-                    self.created_inputs.append(new_input) #effacer les input dans delete widget
-                    new_segmentation = new_input
-                    ##print new_input.to_string(), "\n new_input"
-
-                    #print new_segmentation, "new_segmentation"
-
-                    in_annotations = in_segment.annotations.copy()
-
-                    for new_seg_idx, segment in enumerate(new_segmentation):
-                        new_annotations = in_annotations.copy()
-                        segment.annotations = new_annotations
-                        new_segmentation[new_seg_idx] = segment
-                        #print new_annotations, "new_annotations"
-
-
-                    new_segmentations.append(new_segmentation)
-                    i +=1
-            """
-                #print xml_segmentation.to_string()
-
-
-
-
             # Si checkBox xml desactive
             else:
-
                 xml_segmentation = Segmenter.recode(
                         tagged_segmentation,
                         substitutions=[
                             (re.compile(r"<unknown>"), '[unknown]'),
-                            #(re.compile(r'<'), '"&lt;"'),
-                            #(re.compile(r'>'), '"&gt;"'),
-                            (re.compile(r"(.+)\t(.+)\t(.+)"), '<w lemma="&3" type="&2">&1</w>'),
+                            (re.compile(
+                                r"(.+)\t(.+)\t(.+)"),
+                                '<w lemma="&3" type="&2">&1</w>'
+                            ),
                             (re.compile(r'"""'), '"&quot;"'),
 
                         ],
                     )
-
-                final_segmentation = Segmenter.import_xml(xml_segmentation, "w")
-                #print final_segmentation.to_string(), "segmentation"
-
-                """
-                for in_segment in self.inputData:
-
-                    tagged_text = total_tagged_text[i]
-                    #print in_segment.get_content()
-                    #print tagged_text, "tagged_text"
-
-
-                    # separer le text en mot tagger
-                    text = "\n".join([elem[0] for elem in tagged_text])
-                    # creer un nouvel input et copie les annotations pour les faire apparaitre dans le output...
-                    new_input = Input(text)
-                    self.created_inputs.append(new_input) #effacer les input dans delete widget
-                    #print new_input.to_string(), "kkk"
-                    new_segmentation = Segmenter.tokenize(new_input, [(re.compile(r"\n"), "split")])
-                    #print new_segmentation.to_string(), "kkk"
-
-                    in_annotations = in_segment.annotations.copy()
-
-                    #print in_annotations
-
-                    #print text
-
-                    # ajouter type et lemma aux annotations
-                    for new_seg_idx, segment in enumerate(new_segmentation):
-                        new_annotations = in_annotations.copy()
-                        new_annotations.update({
-                            "type":  tagged_text[new_seg_idx][1],
-                            "lemma": tagged_text[new_seg_idx][2],
-                        })
-                        segment.annotations = new_annotations
-                        new_segmentation[new_seg_idx] = segment
-                        #print new_annotations, "new_annotations"
-
-                        # avancer la progressBar d'un cran
-                        self.progressBar.advance()
-
-                    # ajouter le segement dans une liste pour tout afficher si plusieurs...
-                    new_segmentations.append(new_segmentation)
-                    i +=1
-                """
-            ##print new_segmentations, "new_segmentations"
-
-
-            #output_segmentation = Segmenter.concatenate(new_segmentations, import_labels_as=None)
+                final_segmentation = Segmenter.import_xml(
+                    xml_segmentation,
+                    "w"
+                )
 
             self.infoBox.dataSent('')
 
@@ -577,13 +483,16 @@ class OWTreetagger(OWWidget):
             if self.system == "nt":
                 file = open("treetagger_link.txt", 'w')
             else:
-                file = open(os.path.normpath("/Users/"+self.user+"/treetagger_link.txt"), 'w')
+                file = open(os.path.normpath(
+                    "/Users/" + self.user + "/treetagger_link.txt"),
+                    'w'
+                )
+
             file.write(self.treetagger_link)
             file.close()
 
             # Clear progress bar.
             self.progressBar.finish()
-
 
             # envoyer la seguementation
             self.send('Text data', final_segmentation, self)
@@ -602,7 +511,7 @@ class OWTreetagger(OWWidget):
         f.close()
 
         # liste de langue en option...
-        option = ""
+        option = str()
         if self.langues[self.language] == "French":
             option = "-f"
         elif self.langues[self.language] == "English":
@@ -614,52 +523,39 @@ class OWTreetagger(OWWidget):
         if option:
             commande1 = [
                 "perl",
-                os.path.normpath(self.treetagger_link + "/cmd/utf8-tokenize.perl"),
+                os.path.normpath(
+                    self.treetagger_link + "/cmd/utf8-tokenize.perl"
+                ),
                 option,
                 "-a",
-                os.path.normpath(self.treetagger_link + "/lib/" + self.langues_possibles[self.langues[self.language]][1]),
+                os.path.normpath(
+                    self.treetagger_link + "/lib/" + \
+                    self.langues_possibles[self.langues[self.language]][1]
+                ),
                 tmp
             ]
-            ##print "1"
         else:
             commande1 = [
                 "perl",
                 os.path.normpath(self.treetagger_link + "/cmd/tokenize.pl"),
                 "-a",
-                os.path.normpath(self.treetagger_link + "/lib/" + self.langues_possibles[self.langues[self.language]][1]),
+                os.path.normpath(
+                    self.treetagger_link + "/lib/" + \
+                    self.langues_possibles[self.langues[self.language]][1]
+                ),
                 tmp
             ]
-            ##print "2"
-        ##print self.langues_possibles[self.langues[self.language]][1]
-        ##print commande1, "commande1"
+
+        # evoyer un ordre a la ligne de commande
         if self.system == "nt":
             outcom1 = sp.Popen(commande1, stdout=sp.PIPE, shell=True)
-            out = outcom1.communicate()[0].decode(encoding="utf-8", errors="ignore").replace('\r', '')
+            out = outcom1.communicate()[0]\
+                         .decode(encoding="utf-8", errors="ignore")\
+                         .replace('\r', '')
         else:
             outcom1 = sp.Popen(commande1, stdout=sp.PIPE, shell=False)
-            out = outcom1.communicate()[0].decode(encoding="utf-8", errors="ignore")
-
-        """
-        a effacer:
-
-        if True:
-            outlist = out.split('\n')
-            out =""
-            i=0
-            for elem in outlist:
-                while "<" in elem and "=" in elem and not ">" in elem:
-                    ##print elem, "test"
-                    elem = str(elem) + str(outlist[i+1])
-                    ##print elem
-                    ##print outlist[i+1]
-                    del outlist[i+1]
-                    outlist[i] = elem
-                    ##print outlist, "tout"
-                    ##print elem, "elem"
-                out = out +"\n"+ elem
-                i+=1
-        """
-        ##print str(outcom1), "outcom1"
+            out = outcom1.communicate()[0]\
+                         .decode(encoding="utf-8", errors="ignore")
 
         # ecrire dans un deuxieme fichier le texte separe en mots
         f = codecs.open(tmp2, 'w')
@@ -675,7 +571,10 @@ class OWTreetagger(OWWidget):
         if self.unknown == True:
             commande2 = [
                 os.path.normpath(self.treetagger_link + bin_treetagger),
-                os.path.normpath(self.treetagger_link + "/lib/" + self.langues_possibles[self.langues[self.language]][0]),
+                os.path.normpath(
+                    self.treetagger_link + "/lib/" + \
+                    self.langues_possibles[self.langues[self.language]][0]
+                ),
                 "-token",
                 "-lemma",
                 "-sgml",
@@ -687,7 +586,10 @@ class OWTreetagger(OWWidget):
         if self.unknown == False:
             commande2 = [
                 os.path.normpath(self.treetagger_link + bin_treetagger),
-                os.path.normpath(self.treetagger_link + "/lib/" + self.langues_possibles[self.langues[self.language]][0]),
+                os.path.normpath(
+                    self.treetagger_link + "/lib/" + \
+                    self.langues_possibles[self.langues[self.language]][0]
+                ),
                 "-token",
                 "-lemma",
                 "-sgml",
@@ -698,46 +600,18 @@ class OWTreetagger(OWWidget):
         ##print commande2, "commande2"
         if self.system == "nt":
             output = sp.Popen(commande2, stdout=sp.PIPE, shell=True)
-            outtext = output.communicate()[0].decode(encoding="utf-8", errors="ignore")
+            outtext = output.communicate()[0]\
+                            .decode(encoding="utf-8", errors="ignore")
         else:
             output = sp.Popen(commande2, stdout=sp.PIPE, shell=False)
-            outtext = output.communicate()[0].decode(encoding="utf-8", errors="ignore")
+            outtext = output.communicate()[0]\
+                            .decode(encoding="utf-8", errors="ignore")
 
-        ##print "problem peut etre aussi"
-        #print str(outtext), "outtext"
-        ##print str(outtext)[-2]
         return outtext
-        outtmp = outtext.split('\n')
-
-        #print str(outtmp), "outtmp"
-
-        # supprimer variable inutile
-        del outtext
-        # transformer le texte annote en liste
-        out = []
-        for i in xrange(len(outtmp)):
-            out.append(outtmp[i].split('\t'))
-
-
-        ##print str(output), "output"
-        # remplacer les "<" et ">" car probleme d'affichage
-        for elem in out:
-            if len(elem) == 3 and "<" in elem[2] and ">" in elem[2] :
-                elem[2] = elem[2].replace("<", "[" )
-                elem[2] = elem[2].replace(">", "]")
-
-        #print out, "out"
-
-        # filtrer ce qu'on renvoie apres un tag
-        if self.activer_xml == True:
-            return [elem for elem in out if len(elem) == 3 or "<xb_tt>" in elem[0] or "</xb_tt>" in elem[0] or "<" in elem[0] and ">" in elem[0]]
-        else:
-            return [elem for elem in out if len(elem) == 3 or "<xb_tt>" in elem[0] or "</xb_tt>" in elem[0]]
 
     def updateGUI(self):
         """Update GUI state"""
         pass
-
 
     def clearCreatedInputs(self):
         #Delete all Input objects that have been created.
@@ -745,13 +619,11 @@ class OWTreetagger(OWWidget):
             Segmentation.set_data(i[0].str_index, None)
         del self.createdInputs[:]
 
-
-
     def settings_changed(self):
-        # pour eviter qu'un changement arrive si le widget n'a pas encore evoyer d'output...
+        # eviter qu'un changement arrive
+        # si le widget n'a pas encore evoyer d'output...
         if self.compteur > 0:
             return self.sendButton.settingsChanged()
-
 
     def onDeleteWidget(self):
         """Free memory when widget is deleted (overriden method)"""
@@ -775,12 +647,9 @@ class OWTreetagger(OWWidget):
         qApp.processEvents()
         QTimer.singleShot(50, self.adjustSize)
 
-
-#---------------------------------------------------------------------------------
-
 if __name__ == '__main__':
     myApplication = QApplication(sys.argv)
     myWidget = OWTreetagger()
     myWidget.show()
-    myWidget.processInputData(Input('<texte id="1">hello les amis</text> "oui" '))
+    myWidget.processInputData(Input('salut les amis'))
     myApplication.exec_()
