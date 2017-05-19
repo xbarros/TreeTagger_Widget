@@ -67,8 +67,8 @@ class OWTreetagger(OWWidget):
             self,
             parent,
             signalManager,
-            wantMainArea=0,
-            wantStateInfoWidget=0
+            wantMainArea = 0,
+            wantStateInfoWidget = 0
         )
 
         # DEFINE OUTPUT / INPUT
