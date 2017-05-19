@@ -1,7 +1,6 @@
 setup.py
 TreetaggerPrototype/OWTreetagger.py
 TreetaggerPrototype/__init__.py
-TreetaggerPrototype/aide_code.py
 TreetaggerPrototype.egg-info/PKG-INFO
 TreetaggerPrototype.egg-info/SOURCES.txt
 TreetaggerPrototype.egg-info/dependency_links.txt
