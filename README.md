@@ -9,7 +9,13 @@
 TreeTagger_Widget
 =================
 
-Author
+img...
+
+Annote les textes entrant en type et lemma grâce à `Treetagger
+<http://www.theatre-classique.fr>`.
+Permet la lemmatisation et l'étiquetage morphosyntaxique d'un texte.
+
+Auteur
 ------
 
 Xavier Barros
