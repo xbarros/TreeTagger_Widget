@@ -31,7 +31,7 @@ Outputs:
 
   Segmentation contenant le texte rentré annoté (type et lemma)
 
-Description
+Déscription
 -----------
 
 Ce widget est conçu pour annoté un ou plusieurs textes dans Orange Canvas. 
