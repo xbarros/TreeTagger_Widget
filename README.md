@@ -37,10 +37,10 @@ Déscription
 Ce widget est conçu pour annoté un ou plusieurs textes dans Orange Canvas. 
 Le widget fait appel à Treetagger afin d'annoté le contenu entrant.
 Il renvoie une seguementation sous format texte ou xml contenant un segment par entrée.
-Chaque segment a 3 annotations: un id, le lemma et le type.
+Chaque segment a 3 annotations: un *id*, le *lemma* et le *type*.
 
 L'interface de Treetagger Widget est disponible en deux versions.
-La première apparait si le lien vers Treetagger n'est pas rentré et bloque les fonctionnalité du widget.
+La première apparait si le lien vers TreeTagger n'est pas rentré et bloque les fonctionnalité du widget.
 La deuxième apparait lorsque le lien est rentré et permet une utilisation normale.
 
 
