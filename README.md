@@ -6,8 +6,8 @@
 
 .. _TreeTagger:
 
-# TreeTagger_Widget
-===================
+TreeTagger_Widget
+=================
 
 Author
 ------
