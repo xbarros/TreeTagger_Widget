@@ -11,8 +11,8 @@ TreeTagger_Widget
 
 img...
 
-Annote les textes entrant en type et lemma grâce à `Treetagger
-<http://www.theatre-classique.fr>`.
+Annote les textes entrant en type et lemma grâce à `Treetagger 
+<http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/>`_ .
 Permet la lemmatisation et l'étiquetage morphosyntaxique d'un texte.
 
 Auteur
