@@ -51,11 +51,10 @@ Lien vers Treetagger inconnu
 
 Il faut aller chercher le lien vers le dossier Treetagger qui doit contenir un certain nombres de fichiers:
 
-* cmd/tokenize.pl
+* ``cmd/tokenize.pl``
 
-* cmd/utf8-tokenize.perl
-
-* bin/tree-tagger
+* ``cmd/utf8-tokenize.perl``
+* ``bin/tree-tagger``
 
 
 Lien vers Treetagger rentré
