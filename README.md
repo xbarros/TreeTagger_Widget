@@ -57,7 +57,7 @@ Il faut aller chercher le lien vers le dossier Treetagger qui doit contenir un c
 
 
 Lien vers Treetagger rentré
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Les langues dans l'option apparaitront selon les langues qui seront dans le dossier dossier "Treetagger/lib".
 
@@ -67,24 +67,24 @@ Le choix de la langue est affiché par ordre alphabétique.
 
 Voici une liste des fichier selon la langue désiré:
 
-> "French": "french.par", "french-abbreviations"
-> "English": "english-utf8.par", "english-abbreviations"
-"German": "german-utf8.par", "german-abbreviations"
-"Italian": "italian-utf8.par", "italian-abbreviations"
-"Swahili": "swahili.par", "swahili-abbreviations"
-"Portuguese" : "portuguese.par", "portuguese-abbreviations"
-"Russian": "russian.par", "russian-abbreviations"
-"Spanish": "spanish-utf8.par", "spanish-abbreviations", "spanish-mwls"
-"Slovenian": "slovenian-utf8.par"
-"Slovak": "slovak2-utf8.par"
-"Romanian": "romanian.par"
-"Polish": "polish-utf8.par"
-"Mongolian": "mongolian.par"
-"Latin": "latin.par"
-"Galician": "galician.par"
-"Finnish": "finnish-utf8.par"
-"Estonian": "estonian.par"
-"Bulgarian": "bulgarian-utf8.par"
-"Spoken French": "spoken-french.par", "french-abbreviations
++ "French": "french.par", "french-abbreviations"
++ "English": "english-utf8.par", "english-abbreviations"
++ "German": "german-utf8.par", "german-abbreviations"
++ "Italian": "italian-utf8.par", "italian-abbreviations"
++ "Swahili": "swahili.par", "swahili-abbreviations"
++ "Portuguese" : "portuguese.par", "portuguese-abbreviations"
++ "Russian": "russian.par", "russian-abbreviations"
++ "Spanish": "spanish-utf8.par", "spanish-abbreviations", "spanish-mwls"
++ "Slovenian": "slovenian-utf8.par"
++ "Slovak": "slovak2-utf8.par"
++ "Romanian": "romanian.par"
++ "Polish": "polish-utf8.par"
++ "Mongolian": "mongolian.par"
++ "Latin": "latin.par"
++ "Galician": "galician.par"
++ "Finnish": "finnish-utf8.par"
++ "Estonian": "estonian.par"
++ "Bulgarian": "bulgarian-utf8.par"
++ "Spoken French": "spoken-french.par", "french-abbreviations
 
 
