@@ -53,7 +53,7 @@ Il faut aller chercher le lien vers le dossier Treetagger qui doit contenir un c
 
 * ``cmd/tokenize.pl``
 * ``cmd/utf8-tokenize.perl``
-* bin/tree-tagger
+* ``bin/tree-tagger``
 
 
 Lien vers Treetagger rentré
@@ -67,8 +67,8 @@ Le choix de la langue est affiché par ordre alphabétique.
 
 Voici une liste des fichier selon la langue désiré:
 
-"French": "french.par", "french-abbreviations"
-"English": "english-utf8.par", "english-abbreviations"
+> "French": "french.par", "french-abbreviations"
+> "English": "english-utf8.par", "english-abbreviations"
 "German": "german-utf8.par", "german-abbreviations"
 "Italian": "italian-utf8.par", "italian-abbreviations"
 "Swahili": "swahili.par", "swahili-abbreviations"
