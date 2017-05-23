@@ -47,7 +47,7 @@ La première apparait si le lien vers TreeTagger n'est pas rentré et bloque les
 La deuxième apparait lorsque le lien est rentré et permet une utilisation normale.
 
 Lien vers Treetagger inconnu
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
 
 Il faut aller chercher le lien vers le dossier Treetagger qui doit contenir un certain nombres de fichiers :
 
