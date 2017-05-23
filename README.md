@@ -53,7 +53,7 @@ Il faut aller chercher le lien vers le dossier Treetagger qui doit contenir un c
 
 * ``cmd/tokenize.pl``
 * ``cmd/utf8-tokenize.perl``
-* ``bin/tree-tagger``
+* bin/tree-tagger
 
 
 Lien vers Treetagger rentré
