@@ -46,8 +46,13 @@ L'interface de Treetagger Widget est disponible en deux versions.
 La première apparait si le lien vers TreeTagger n'est pas rentré et bloque les fonctionnalité du widget.
 La deuxième apparait lorsque le lien est rentré et permet une utilisation normale.
 
+
 Lien vers Treetagger inconnu
-----------------------------
+
+
+.. figure:: img/tt_gg_inconnu.png
+    :align: center
+    :alt: Advanced interface of the Text Tree widget
 
 Il faut aller chercher le lien vers le dossier Treetagger qui doit contenir un certain nombres de fichiers :
 
@@ -56,14 +61,22 @@ Il faut aller chercher le lien vers le dossier Treetagger qui doit contenir un c
 * ``bin/tree-tagger``
 
 
-Lien vers Treetagger rentré
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Lien vers Treetagger connu
+
+
+.. figure:: img/tt_gg_connu.png
+    :align: center
+    :alt: Advanced interface of the Text Tree widget
 
 Les langues dans l'option apparaitront selon les langues qui seront dans le dossier dossier "Treetagger/lib".
 
 Elle peuvent être télécharger sur le site de `Treetagger <http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/>` même sous "Parameter files"
 
 Le choix de la langue est affiché par ordre alphabétique.
+
+.. figure:: img/langue.png
+    :align: center
+    :alt: Advanced interface of the Text Tree widget
 
 Voici une liste des fichier selon la langue désiré:
 
@@ -88,3 +101,41 @@ Voici une liste des fichier selon la langue désiré:
 + "Spoken French": "spoken-french.par", "french-abbreviations
 
 
+Messages
+--------
+
+Information
+
+*Data correcly sent to output.*
+    This confirms that the widget has operated properly.
+
+
+Warnings
+
+
+*Settings were changed, please click 'Send' when ready.*
+    Settings have changed but the **Send automatically** checkbox
+    has not been selected, so the user is prompted to click the **Send**
+    button (or equivalently check the box) in order for computation and data
+    emission to proceed.
+
+*Widget need input*
+    The widget instance is not able to emit data to output because the is no input.
+    
+ *Treetagger is running...*
+   Le widget est en train de tourner, il faut attendre.
+   
+*Please click 'Browse' and select the path to TreeTagger base folder.*
+   Si le lien vers le dossier Treetagger n'est pas rentré.
+   
+*TreeTagger's link is correct ! Now, Widget needs input.*
+   Quand le bon lien est rentré mais qu'il faut encore un input.
+    
+Errors
+
+
+*Sorry, TreeTagger's link isn't correct.*
+    Si le lien vers le dossier Treetagger est faux.
+    
+*Sorry, TreeTagger's link not found.*
+    Si le lien vers le dossier Treetagger n'est pas trouvé.
