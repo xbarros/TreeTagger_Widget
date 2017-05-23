@@ -13,6 +13,7 @@ img...
 
 Annote les textes entrant en type et lemma grâce à `Treetagger 
 <http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/>`_ .
+
 Permet la lemmatisation et l'étiquetage morphosyntaxique d'un texte.
 
 Auteur
@@ -23,7 +24,9 @@ Xavier Barros
 Signals
 -------
 
-Inputs: None
+Inputs: 
+
+   Corpus texte (ex: Text Fiels, Text Files, tec...)
 
 Outputs:
 
@@ -43,6 +46,17 @@ L'interface de Treetagger Widget est disponible en deux versions.
 La première apparait si le lien vers TreeTagger n'est pas rentré et bloque les fonctionnalité du widget.
 La deuxième apparait lorsque le lien est rentré et permet une utilisation normale.
 
+Lien vers Treetagger inconnu
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Il faut aller chercher le lien vers le dossier Treetagger qui doit contenir un certain nombres de fichiers:
+
+* cmd/tokenize.pl
+* cmd/utf8-tokenize.perl
+* bin/tree-tagger
+
+
+Lien vers Treetagger rentré
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
