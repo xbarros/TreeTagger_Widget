@@ -91,7 +91,8 @@ Elle prendra la valeur du mot inconnu.
 
 Les **langues** dans l'option apparaitront selon les langues qui seront dans le dossier dossier "Treetagger/lib".
 
-Elle peuvent être télécharger sur le site de `Treetagger <http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/>` même sous "Parameter files"
+Elle peuvent être télécharger sur le site de `Treetagger 
+<http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/>`_ même sous "Parameter files"
 
 Le choix de la langue est affiché par ordre alphabétique.
 
