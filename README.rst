@@ -120,7 +120,7 @@ Warnings
     button (or equivalently check the box) in order for computation and data
     emission to proceed.
 
-*Widget need input*
+*Widget need input.*
    The widget instance is not able to emit data to output because the is no input.
     
  *Treetagger is running...*
