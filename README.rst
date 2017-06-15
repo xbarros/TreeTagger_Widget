@@ -48,11 +48,18 @@ La deuxième apparait lorsque le lien est rentré et permet une utilisation norm
 
 
 Lien vers Treetagger inconnu
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: img/tt_gg_inconnu.png
     :align: center
     :alt: Advanced interface of the Text Tree widget
+
+   Figure 1: **Treetagger** widget (interface verouillée).
+   
+
+Les **Options** sont vérouiller car le lien vers treetagger n'est pas rentré.
+
+Les **Info** indique à l'utilisateur ce qu'il doit faire pour résoudre le problème.
 
 Il faut aller chercher le lien vers le dossier Treetagger qui doit contenir un certain nombres de fichiers :
 
@@ -60,13 +67,20 @@ Il faut aller chercher le lien vers le dossier Treetagger qui doit contenir un c
 * ``cmd/utf8-tokenize.perl``
 * ``bin/tree-tagger``
 
+Le bouton ** Send ** déclenche l'émission d'une segmentation à la sortie. 
+Lorsque la checkbox ** Send automaticaly ** est sélectionné,  
+le bouton est désactive et le widget tente d'émettre automatiquement une
+sortie à chaque modification de son interface.
+
 
 Lien vers Treetagger connu
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: img/tt_gg_connu.png
     :align: center
     :alt: Advanced interface of the Text Tree widget
+    
+       Figure 2: **Treetagger** widget (interface déverouillée).
 
 Les langues dans l'option apparaitront selon les langues qui seront dans le dossier dossier "Treetagger/lib".
 
@@ -123,7 +137,7 @@ Warnings
 *Widget need input.*
     The widget instance is not able to emit data to output because the is no input.
 
- *Treetagger is running...*
+*Treetagger is running...*
    Le widget est en train de tourner, il faut attendre.
    
 *Please click 'Browse' and select the path to TreeTagger base folder.*
