@@ -105,13 +105,14 @@ Messages
 --------
 
 Information
+~~~~~~~~~~~
 
 *Data correcly sent to output.*
     This confirms that the widget has operated properly.
 
 
 Warnings
-
+~~~~~~~~
 
 *Settings were changed, please click 'Send' when ready.*
     Settings have changed but the **Send automatically** checkbox
@@ -132,7 +133,7 @@ Warnings
    Quand le bon lien est rentré mais qu'il faut encore un input.
     
 Errors
-
+~~~~~~
 
 *Sorry, TreeTagger's link isn't correct.*
     Si le lien vers le dossier Treetagger est faux.
