@@ -123,9 +123,6 @@ Warnings
 *Widget need input.*
     The widget instance is not able to emit data to output because the is no input.
 
-*Widget need input.*
-   salut.
-    
  *Treetagger is running...*
    Le widget est en train de tourner, il faut attendre.
    
