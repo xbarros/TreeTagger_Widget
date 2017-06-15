@@ -55,9 +55,8 @@ Lien vers Treetagger inconnu
     :alt: Advanced interface of the Text Tree widget
 
    Figure 1: **Treetagger** widget (interface verouillée).
-   
 
-Les **Options** sont vérouiller car le lien vers treetagger n'est pas rentré.
+Les **Options** sont vérouillées car le lien vers treetagger n'est pas rentré.
 
 Les **Info** indique à l'utilisateur ce qu'il doit faire pour résoudre le problème.
 
@@ -67,7 +66,7 @@ Il faut aller chercher le lien vers le dossier Treetagger qui doit contenir un c
 * ``cmd/utf8-tokenize.perl``
 * ``bin/tree-tagger``
 
-Le bouton ** Send ** déclenche l'émission d'une segmentation à la sortie. 
+Le bouton ** Send ** envoie une segmentation à la sortie. 
 Lorsque la checkbox ** Send automaticaly ** est sélectionné,  
 le bouton est désactive et le widget tente d'émettre automatiquement une
 sortie à chaque modification de son interface.
@@ -80,9 +79,16 @@ Lien vers Treetagger connu
     :align: center
     :alt: Advanced interface of the Text Tree widget
     
-       Figure 2: **Treetagger** widget (interface déverouillée).
+    Figure 2: **Treetagger** widget (interface déverouillée).
 
-Les langues dans l'option apparaitront selon les langues qui seront dans le dossier dossier "Treetagger/lib".
+Les **Options** sont dévérouillées.
+
+Cochez la checkbox "**Output with XML code**" et résultat sera une sortie avec le texte annoter en XML. 
+Cela est utile si votre texte à analyser contient du xml. 
+
+Cocher la checkbox "**Output without '<unknow>'**" pour ne pas avoir d'annotation <unknow>.
+
+Les **langues** dans l'option apparaitront selon les langues qui seront dans le dossier dossier "Treetagger/lib".
 
 Elle peuvent être télécharger sur le site de `Treetagger <http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/>` même sous "Parameter files"
 
@@ -91,6 +97,8 @@ Le choix de la langue est affiché par ordre alphabétique.
 .. figure:: img/langue.png
     :align: center
     :alt: Advanced interface of the Text Tree widget
+
+    Figure 3: **Option** du Widget Treetagger (interface déverouillée).
 
 Voici une liste des fichier selon la langue désiré:
 
