@@ -66,8 +66,8 @@ Il faut aller chercher le lien vers le dossier Treetagger qui doit contenir un c
 * ``cmd/utf8-tokenize.perl``
 * ``bin/tree-tagger``
 
-Le bouton ** Send ** envoie une segmentation à la sortie. 
-Lorsque la checkbox ** Send automaticaly ** est sélectionné,  
+Le bouton **Send** envoie une segmentation à la sortie. 
+Lorsque la checkbox **Send automaticaly** est sélectionné,  
 le bouton est désactive et le widget tente d'émettre automatiquement une
 sortie à chaque modification de son interface.
 
@@ -83,10 +83,11 @@ Lien vers Treetagger connu
 
 Les **Options** sont dévérouillées.
 
-Cochez la checkbox "**Output with XML code**" et résultat sera une sortie avec le texte annoter en XML. 
+Cochez la checkbox **Output with XML code** et résultat sera une sortie avec le texte annoter en XML. 
 Cela est utile si votre texte à analyser contient du xml. 
 
-Cocher la checkbox "**Output without '<unknow>'**" pour ne pas avoir d'annotation <unknow>.
+Cocher la checkbox **Output without '<unknow>'** pour ne pas avoir de lemma inconnue. 
+Elle prendra la valeur du mot inconnu.
 
 Les **langues** dans l'option apparaitront selon les langues qui seront dans le dossier dossier "Treetagger/lib".
 
