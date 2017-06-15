@@ -119,6 +119,9 @@ Warnings
     has not been selected, so the user is prompted to click the **Send**
     button (or equivalently check the box) in order for computation and data
     emission to proceed.
+    
+*Widget need input.*
+    The widget instance is not able to emit data to output because the is no input.
 
 *Widget need input.*
    salut.
