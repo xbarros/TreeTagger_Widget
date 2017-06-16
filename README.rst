@@ -50,8 +50,9 @@ L'interface de Treetagger Widget est disponible en deux versions.
 La première apparait si le lien vers TreeTagger n'est pas rentré et bloque les fonctionnalité du widget.
 La deuxième apparait lorsque le lien est rentré et permet une utilisation normale.
 
-
-
+ 
+ 
+ 
 
 Lien vers Treetagger inconnu
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
