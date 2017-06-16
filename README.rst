@@ -9,7 +9,9 @@
 TreeTagger_Widget
 =================
 
-img...
+.. figure:: img/Treetagger_54.png
+    :align: left
+    :alt: icon
 
 Annote les textes entrant en type et lemma grâce à `Treetagger 
 <http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/>`_ .
