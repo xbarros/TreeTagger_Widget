@@ -23,14 +23,14 @@ Auteur
 
 Xavier Barros
 
-Ce Widget à été créé dans le cadre du cour Projet en Informatique sous la supervision d'Aris Xanthos lors du semestre de printemps 2017 à l'UNIL (Université de Lausanne). 
+Ce Widget à été créé dans le cadre du cours Projet en Informatique sous la supervision d'Aris Xanthos lors du semestre de printemps 2017 à l'UNIL (Université de Lausanne). 
 
 Signals
 -------
 
 Inputs:
 
-   Corpus texte (ex: Text Fiels, Text Files, tec...)
+   Corpus texte (ex: Text Fiels, Text Files, etc...)
 
 Outputs:
 
@@ -41,13 +41,13 @@ Outputs:
 Déscription
 -----------
 
-Ce widget est conçu pour annoté un ou plusieurs textes dans Orange Canvas. 
-Le widget fait appel à Treetagger afin d'annoté le contenu entrant.
-Il renvoie une seguementation sous format texte ou xml contenant un segment par entrée.
+Ce widget est conçu pour annoter un ou plusieurs textes dans Orange Canvas. 
+Le widget fait appel à Treetagger afin d'annoter le contenu entrant.
+Il renvoie une segmentation sous format texte ou xml contenant un segment par entrée.
 Chaque segment a 3 annotations: un *id*, le *lemma* et le *type*.
 
 L'interface de Treetagger Widget est disponible en deux versions.
-La première apparait si le lien vers TreeTagger n'est pas rentré et bloque les fonctionnalité du widget.
+La première apparait si le lien vers TreeTagger n'est pas rentré et bloque les fonctionnalités du widget.
 La deuxième apparait lorsque le lien est rentré et permet une utilisation normale.
 
  
@@ -65,7 +65,7 @@ Lien vers Treetagger inconnu
 
 Les **Options** sont vérouillées car le lien vers treetagger n'est pas rentré.
 
-Les **Info** indique à l'utilisateur ce qu'il doit faire pour résoudre le problème.
+Les **Info** indiquent à l'utilisateur ce qu'il doit faire pour résoudre le problème.
 
 Il faut aller chercher le lien vers le dossier Treetagger qui doit contenir un certain nombres de fichiers :
 
@@ -74,8 +74,8 @@ Il faut aller chercher le lien vers le dossier Treetagger qui doit contenir un c
 * ``bin/tree-tagger``
 
 Le bouton **Send** envoie une segmentation à la sortie. 
-Lorsque la checkbox **Send automaticaly** est sélectionné,  
-le bouton est désactive et le widget tente d'émettre automatiquement une
+Lorsque la checkbox **Send automaticaly** est sélectionnée,  
+le bouton est désactivé et le widget tente d'émettre automatiquement une
 sortie à chaque modification de son interface.
 
 
@@ -88,18 +88,18 @@ Lien vers Treetagger connu
     
     Figure 2: **Treetagger** widget (interface déverouillée).
 
-La section **Info** tout comme le bouton **Send** et **Send automatically** agisse de la même façon que dans l'interface avec Treetagger inconnu.
+La section **Info** tout comme le bouton **Send** et **Send automatically** agissent de la même façon que dans l'interface avec Treetagger inconnu.
 
 Les **Options** sont dévérouillées.
 
-Cochez la checkbox **Output with XML code** et résultat sera une sortie avec le texte annoter en XML. 
-Cela est utile si votre texte à analyser contient du xml. 
+Cochez la checkbox **Output with XML code** et le résultat sera une sortie avec le texte annoter en XML. 
+Cela est utile si votre texte à analyser contient du xml et que vous voulez garder sa structure. 
 
-Cocher la checkbox **Output without '<unknow>'** pour ne pas avoir de lemma inconnue. 
+Cocher la checkbox **Output without '<unknow>'** pour ne pas avoir de lemma inconnu. 
 Elle prendra la valeur du mot inconnu.
 
 Les **langues** dans l'option apparaitront selon les langues qui seront dans le dossier dossier "Treetagger/lib".
-Elle peuvent être télécharger sur le site de `Treetagger 
+Elles peuvent être télécharger sur le site de `Treetagger 
 <http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/>`_ même sous "Parameter files"
 Le choix de la langue est affiché par ordre alphabétique.
 
@@ -187,9 +187,9 @@ J'ai appris à:
 + Débugguer un script 
 + Trouver l'endroit du problème
 + Aller chercher des solutions sur Internet
-+ Amélirer les performances d'un code
++ Améliorer les performances d'un code
 + Commanter un code
-+ Faire un mise en page dans les normes imprimable
++ Faire un mise en page dans les normes imprimables
 + Utiliser un mac
 
 
@@ -198,14 +198,14 @@ Historique
 
 Au départ, le projet avait été imaginé lors du cour de Bachelors **Programmation pour le texte II**.
 Nous étions 5 à travailler dessus dont 3 sur la partie codage.
-Nous avons fait un `propotype <https://github.com/xbarros/Treetagger_for_Textable>`_ très limiter qui ne fonctionnais pas très bien.
+Nous avons fait un `propotype <https://github.com/xbarros/Treetagger_for_Textable>`_ très limité qui ne fonctionnait pas très bien.
 
-Je m'étais occupé de la majorité de la partie informatique et c'est là que j'ai pris gout à la programmation.
-J'ai donc décidé de recommancer le widget dans le cadre de mon Master.
-Comme nous avions rencontré plusieurs problèmes, j'ai décider de recommancer le widget à zéro.
+En majorité, je m'étais occupé de la partie informatique et c'est là que j'ai pris goût à la programmation.
+J'ai donc décidé de recommencer le widget dans le cadre de mon Master.
+Comme nous avions rencontré plusieurs problèmes, j'ai décidé de recommencer le widget à zéro.
 J'ai fait attention à ne pas répéter les erreurs de l'année dernière ce qui m'a permis de gagner beaucoup de temps.
 
-J'ai ajouté des Options au widget, amélioré le traitement de texte par Treetagger, refait un peu différemment l'interface et ai permis une utilisation sur PC et Mac.
+J'ai ajouté des Options au widget, amélioré le traitement de texte par Treetagger, refait légèrement différemment l'interface et ai permis une utilisation sur PC et Mac.
 La manière de vérifier les dossiers Treetagger est aussi différente.
 
 
@@ -216,15 +216,22 @@ J'ai rencontré plusieurs problèmes lors du codage du widget.
 
 Tout d'abord, la partie PC à Mac m'a pris beaucoup de temps. 
 Je n'avais pas l'habitude de travailler avec ce type d'ordinateur.
-La manière de reconnaitre des fichier sous Mac n'est pas la même que sous PC.
-J'ai donc du adapter le code selon le type de machine de l'utilisateur.
+La manière de reconnaitre des fichiers sur Mac n'est pas la même que sur PC.
+J'ai donc du adapter le code selon le type de machine propre à l'utilisateur.
 
-Puis, il a été imaginer de traiter des texte en format XML.
-Cela posait problème avec ma manière d'envoyer le text vers Treetagger pour qu'il soit annoté.
-J'ai du coder une nouvelle manière de faire rentrer les seguements à annoté.
-Manière qui au final n'a pas été utile.
+Puis, il a été imaginé de traiter des textes en format XML.
+Cela posait problème avec la manière d'envoyer le texte vers Treetagger pour qu'il soit annoté.
+J'ai du coder une nouvelle manière de faire rentrer les segments à annoter.
+Manière qui, au final, n'a pas été utile.
 Avec l'amélioration de la performance (point suivant) je n'ai pas eu besoin de différencier un text en xml d'un code normal.
 
-Pour finir, lorsque le widget prennait enfin sa forme final, plusieurs problèmes de performances ont été pointé du doigt.
+Pour finir, lorsque le widget prennait enfin sa forme finale, plusieurs problèmes de performances ont été pointés du doigt.
 Il n'a pas été facile de les corriger car cela voulait dire qu'il fallait changer plus de 100 lignes de codes.
-Ces changements entrainaient de nouveaux problèmes qui ont retardé la finalisation de mon projet.
+Ces changements ont entrainé de nouveaux problèmes et ont retardé la finalisation de mon projet.
+
+
+Problèmes restants
+------------------
+
++ "xb_tt" apparait parfois dans le display.
++ Faire la version Python 3
