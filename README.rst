@@ -55,8 +55,8 @@ Lien vers Treetagger inconnu
 .. figure:: img/tt_gg_inconnu.png
     :align: center
     :alt: Advanced interface of the Text Tree widget
-
-   Figure 1: **Treetagger** widget (interface verouillée).
+    
+    Figure 1: **Treetagger** widget (interface verouillée).
 
 Les **Options** sont vérouillées car le lien vers treetagger n'est pas rentré.
 
