@@ -21,10 +21,12 @@ Auteur
 
 Xavier Barros
 
+Ce Widget à été créé dans le cadre du cour Projet en Informatique sous la supervision d'Aris Xanthos lors du semestre de printemps 2017 à l'UNIL (Université de Lausanne). 
+
 Signals
 -------
 
-Inputs: 
+Inputs:
 
    Corpus texte (ex: Text Fiels, Text Files, tec...)
 
@@ -81,6 +83,8 @@ Lien vers Treetagger connu
     
     Figure 2: **Treetagger** widget (interface déverouillée).
 
+La section **Info** tout comme le bouton **Send** et **Send automatically** agisse de la même façon que dans l'interface avec Treetagger inconnu.
+
 Les **Options** sont dévérouillées.
 
 Cochez la checkbox **Output with XML code** et résultat sera une sortie avec le texte annoter en XML. 
@@ -134,7 +138,6 @@ Information
 *Data correcly sent to output.*
     This confirms that the widget has operated properly.
 
-
 Warnings
 ~~~~~~~~
 
@@ -164,3 +167,55 @@ Errors
     
 *Sorry, TreeTagger's link not found.*
     Si le lien vers le dossier Treetagger n'est pas trouvé.
+ 
+
+Connaissances
+-------------
+
+Ce cour m'a permis de développer mes connaissances:
+
++ Sur l'utilisation de Github
++ En python 2.7
++ Sur l'utilisation de l'invite de commande
+
+J'ai appris à:
+
++ Identifier les problèmes potentiels
++ Débugguer un script 
++ Trouver l'endroit du problème
++ Aller chercher des solutions sur Internet
++ Amélirer les performances d'un code
++ Commanter un code
++ Faire un mise en page dans les normes imprimable
++ Utiliser un mac
+
+
+Historique
+----------
+
+Au départ, le projet avait été imaginé lors du cour de Bachelors **Programmation pour le texte II**.
+Nous étions 5 à travailler dessus dont 3 sur la partie codage.
+Nous avons fait un `propotype <https://github.com/xbarros/Treetagger_for_Textable>`_ très limiter qui ne fonctionnais pas très bien.
+
+Je m'étais occupé de la majorité de la partie informatique et c'est là que j'ai pris gout à la programmation.
+J'ai donc décidé de recommancer le widget dans le cadre de mon Master.
+Comme nous avions rencontré plusieurs problèmes, j'ai décider de recommancer le widget à zéro.
+J'ai fait attention à ne pas répéter les erreurs de l'année dernière ce qui m'a permis de gagner beaucoup de temps.
+
+J'ai ajouté des Options au widget, amélioré le traitement de texte par Treetagger, refait un peu différemment l'interface et ai permis une utilisation sur PC et Mac.
+La manière de vérifier les dossiers Treetagger est aussi différente.
+
+
+Problèmes rencontrés
+--------------------
+
+J'ai rencontré plusieurs problèmes lors du codage du widget.
+
+Tout d'abord, la partie PC à Mac m'a pris beaucoup de temps. 
+Je n'avais pas l'habitude de travailler avec ce type d'ordinateur.
+La manière de reconnaitre des fichier sous Mac n'est pas la même que sous PC.
+J'ai donc du adapter le code selon le type de machine de l'utilisateur.
+
+Puis, 
+
+
