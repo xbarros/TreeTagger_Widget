@@ -94,10 +94,8 @@ Cocher la checkbox **Output without '<unknow>'** pour ne pas avoir de lemma inco
 Elle prendra la valeur du mot inconnu.
 
 Les **langues** dans l'option apparaitront selon les langues qui seront dans le dossier dossier "Treetagger/lib".
-
 Elle peuvent être télécharger sur le site de `Treetagger 
 <http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/>`_ même sous "Parameter files"
-
 Le choix de la langue est affiché par ordre alphabétique.
 
 .. figure:: img/langue.png
@@ -106,7 +104,7 @@ Le choix de la langue est affiché par ordre alphabétique.
 
     Figure 3: **Option** du Widget Treetagger (interface déverouillée).
 
-Voici une liste des fichier selon la langue désiré:
+Voici une liste des fichier à avoir dans le document ``Treetagger/lib`` selon la langue désirée:
 
 + "French": "french.par", "french-abbreviations"
 + "English": "english-utf8.par", "english-abbreviations"
@@ -216,6 +214,14 @@ Je n'avais pas l'habitude de travailler avec ce type d'ordinateur.
 La manière de reconnaitre des fichier sous Mac n'est pas la même que sous PC.
 J'ai donc du adapter le code selon le type de machine de l'utilisateur.
 
-Puis, 
+Puis, il a été imaginer de traiter des texte en format XML.
+Cela posait problème avec ma manière d'envoyer le text vers Treetagger pour qu'il soit annoté.
+J'ai du coder une nouvelle manière de faire rentrer les seguements à annoté.
+Manière qui au final n'a pas été utile.
+Avec l'amélioration de la performance (point suivant) je n'ai pas eu besoin de différencier un text en xml d'un code normal.
+
+Pour finir, lorsque le widget prennait enfin sa forme final, plusieurs problèmes de performances ont été pointé du doigt.
+Il n'a pas été facile de les corriger car cela voulait dire qu'il fallait changer plus de 100 lignes de codes.
+Ces changements entrainaient de nouveaux problèmes qui ont retardé la finalisation de mon projet.
 
 
