@@ -225,5 +225,3 @@ Avec l'amélioration de la performance (point suivant) je n'ai pas eu besoin de 
 Pour finir, lorsque le widget prennait enfin sa forme final, plusieurs problèmes de performances ont été pointé du doigt.
 Il n'a pas été facile de les corriger car cela voulait dire qu'il fallait changer plus de 100 lignes de codes.
 Ces changements entrainaient de nouveaux problèmes qui ont retardé la finalisation de mon projet.
-
-
