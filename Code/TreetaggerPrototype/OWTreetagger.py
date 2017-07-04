@@ -1,5 +1,5 @@
 """
-mac Applications/Orange.app/Contents/MacOS/python OWTreetagger.py
+mac: Applications/Orange.app/Contents/MacOS/python OWTreetagger.py
 """
 
 """
@@ -96,7 +96,7 @@ class OWTreetagger(OWWidget):
         self.langues = list()
         self.created_inputs = list()
         self.language = 0
-        self.var1 = 0
+        self.check_firt_use = False
         self.activer_xml = False
         self.unknown = False
         self.compteur = 0
@@ -192,7 +192,7 @@ class OWTreetagger(OWWidget):
             widget = self.infoBox1,
             master = self,
             value = 'unknown',
-            label = " Output without '<unknown>'",
+            label = " Output without '[unknown]'",
             callback = self.settings_changed
         )
 
@@ -288,7 +288,7 @@ class OWTreetagger(OWWidget):
             self.infoBox1.setDisabled(True)
 
             # afficher les probleme s'il y en a...
-            if self.var1 == 0:
+            if self.check_firt_use is False:
                 self.infoBox.setText(
                     u"Please click 'Browse' and select the path \
                     to TreeTagger base folder. ",
@@ -303,7 +303,7 @@ class OWTreetagger(OWWidget):
         # cacher le bouton pour aller chercher le lien
         # et deverouiller le reste des posibilite...
         else:
-            if self.var1 > 0:
+            if self.check_firt_use is True:
                 self.infoBox.setText(
                     u"TreeTagger's link is correct !\n\n \
                     Now, Widget needs input.",
@@ -352,7 +352,7 @@ class OWTreetagger(OWWidget):
         file.write(self.treetagger_link)
         file.close()
 
-        self.var1 +=1
+        self.check_firt_use = True
 
         # verifie si le lien marche
         self.treetagger_check()
@@ -434,9 +434,13 @@ class OWTreetagger(OWWidget):
             for seg_idx, segment in enumerate(self.inputData):
                 attr = " ".join(["%s='%s'" % \
                 item for item in segment.annotations.items()])
+                for itema in segment.annotations.items():
+                    print itema
+                print attr
                 segment.annotations["tt_xb"] = attr
                 self.inputData[seg_idx] = segment
-
+                # si on re-utilise le widget il faut supprimer l'annotation tt_xb sinon bug car déjà existante
+            
             # avancer la progressBar d'un cran
             self.progressBar.advance()
 
@@ -444,6 +448,8 @@ class OWTreetagger(OWWidget):
                 formatting="<xb_tt %(tt_xb)s>%(__content__)s</xb_tt>",
                 display_all=True,
             )
+            
+            
             
             # avancer la progressBar d'un cran
             self.progressBar.advance()
@@ -620,6 +626,10 @@ class OWTreetagger(OWWidget):
             outtext = output.communicate()[0]\
                             .decode(encoding="utf-8", errors="ignore")
 
+        # supprimer ficher temporaire
+        os.remove(tmp)
+        os.remove(tmp2)
+        
         # avancer la progressBar d'un cran
         self.progressBar.advance()
         
